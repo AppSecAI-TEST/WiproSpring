@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+xmlns= "http://www.springframework.org/schema/beans"
+xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context= "http://www.springframework.org/schema/context"
+xsi:schemaLocation= "http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd" >
+
+<context:annotation-config/>
+<context:component-scan base-package="com" />
+
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="basenames">
+			<list>
+				<value>I18n02_login</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="user" class="com.model.User" />
+	<bean id="controller" class="com.controller.LoginController">
+		<constructor-arg ref="service" />
+	</bean>
+	<bean id="service" class="com.service.LoginService">
+		<constructor-arg ref="dao"/>
+	</bean>
+	<bean id="dao" class="com.dao.LoginDao" />
+	
+</beans>
