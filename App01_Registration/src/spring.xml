@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns= "http://www.springframework.org/schema/beans"
+xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation= "http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd" >
+
+	<bean id="emp" class="com.wipro.model.Employee" scope="prototype"/>
+	
+	<bean id="dummyDb" class="com.wipro.DummyDb">
+		<property name="dbMap">
+			<map>
+				<entry key="0">
+					<bean class="com.wipro.model.Employee">
+						<property name="name" value="Abhijit" />
+						<property name="id">
+							<value>101</value>
+						</property>
+					</bean>
+				</entry>
+				<entry key="1">
+					<bean class="com.wipro.model.Employee">
+						<property name="name" value="Kunal" />
+						<property name="id" value="102" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+</beans>
