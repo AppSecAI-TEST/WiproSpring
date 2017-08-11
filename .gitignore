@@ -9,6 +9,7 @@
 
 # IDEs and editors
 /**/.idea
+/**/bin
 /**/.c9/
 /**/*.launch
 /**/*.sublime-workspace
